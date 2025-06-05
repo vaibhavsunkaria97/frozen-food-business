@@ -1,0 +1,90 @@
+.register-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    width: 90%; /* Ensure the container adjusts to the screen size */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.5rem; /* Adjust font size for better readability */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #444;
+    font-size: 0.9rem; /* Slightly smaller font for better layout on phones */
+}
+
+form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%; /* Ensure inputs take up full width of the container */
+    box-sizing: border-box;
+}
+
+form button {
+    padding: 10px;
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Ensure button takes up full width of the container */
+}
+
+form button:hover {
+    background-color: #0f78d1;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.9rem; /* Adjust font size for better readability on phones */
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 600px) {
+    .register-container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.3rem; /* Adjust heading size for smaller screens */
+    }
+
+    form label {
+        font-size: 0.85rem; /* Reduce label font size */
+    }
+
+    form input {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    form button {
+        padding: 10px;
+        font-size: 1rem; /* Reduce button font size */
+    }
+}

@@ -1,0 +1,110 @@
+/* Container Styles */
+.track-order-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Order Card */
+.order-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.order-card h2 {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.product-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-list li {
+    margin: 5px 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Status Tracker */
+.status-tracker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+}
+
+.status-step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+    padding: 10px;
+}
+
+.status-step::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 4px;
+    width: 100%;
+    background-color: #ddd;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.status-step:first-child::after {
+    width: 50%;
+    left: 50%;
+}
+
+.status-step:last-child::after {
+    width: 50%;
+    left: 0%;
+}
+
+.status-step.active::after {
+    background-color: #007bff;
+}
+
+.status-icon {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    color: #ddd;
+    transition: color 0.3s;
+}
+
+.status-step.active .status-icon {
+    color: #007bff;
+}
+
+.status-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.status-step.current .status-icon {
+    animation: pulse 1.5s infinite;
+    color: #ff5722;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}

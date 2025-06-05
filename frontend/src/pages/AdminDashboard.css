@@ -1,0 +1,113 @@
+.admin-dashboard-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.orders-table th,
+.orders-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.orders-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #333;
+}
+
+.orders-table td ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.orders-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.status-picker {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.status-picker.pending {
+    background-color: #ffeb3b;
+}
+
+.status-picker.processing {
+    background-color: #ff9800;
+}
+
+.status-picker.shipped {
+    background-color: #2196f3;
+    color: white;
+}
+
+.status-picker.delivered {
+    background-color: #4caf50;
+    color: white;
+}
+
+.status-picker.cancelled {
+    background-color: #f44336;
+    color: white;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center; /* Center the search bar */
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 12px; /* Increase padding for a better feel */
+    border: 1px solid #ccc;
+    border-radius: 25px; /* Rounded edges for a sleek look */
+    width: 50%; /* Make it longer */
+    max-width: 600px; /* Limit the maximum width */
+    font-size: 1rem;
+    transition: all 0.3s ease; /* Smooth transition for hover and focus */
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: #007bff; /* Highlight border on focus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Add a subtle glow effect */
+}
+
+.search-bar input:hover {
+    border-color: #007bff;
+}
+
+
+@media screen and (max-width: 768px) {
+    .orders-table {
+        font-size: 0.9rem;
+    }
+
+    .orders-table th,
+    .orders-table td {
+        padding: 8px;
+    }
+}

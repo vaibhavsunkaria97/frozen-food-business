@@ -1,0 +1,195 @@
+/* General Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ensures vertical alignment */
+    padding: 10px 15px;
+    background-color: white; /* Softer whitish-yellow tone */
+    color: #333;
+    font-family: Arial, sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 0;
+}
+
+/* Navbar Header */
+.navbar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    flex-grow: 1;
+}
+
+.navbar-brand a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    font-size: 1.8rem;
+    color: #007bff; /* Blue color */
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+    padding: 5px;
+}
+
+/* Navbar Links */
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Increased spacing */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    padding: 8px 12px;
+    display: block;
+    text-align: center;
+}
+
+.navbar-links li a:hover {
+    color: #007bff;
+    background-color: #f0f0f0; /* Subtle hover effect */
+    border-radius: 5px;
+}
+
+/* Navbar Actions */
+.navbar-actions {
+    display: flex;
+    align-items: center; /* Ensures vertical alignment with the navbar */
+    gap: 15px;
+}
+
+.login-button,
+.register-button,
+.logout-button {
+    background-color: whitesmoke;
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+}
+
+.login-button:hover,
+.register-button:hover,
+.logout-button:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* User Dropdown */
+.user-dropdown {
+    position: relative;
+    font-weight: bold;
+    display: flex;
+    align-items: center; /* Ensures vertical alignment */
+    cursor: pointer;
+}
+
+.welcome {
+    font-size: 1rem;
+    color: #333;
+    margin-right: 10px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    min-width: 150px;
+}
+
+.dropdown-menu.open {
+    display: block;
+}
+
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: 0.9rem;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background-color: whitesmoke;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        z-index: 1000;
+        border-top: 1px solid #ddd;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-links.open {
+        display: flex;
+    }
+
+    .navbar-links li {
+        text-align: center;
+    }
+
+    .navbar-links li a,
+    .navbar-links li button {
+        font-size: 1rem;
+        padding: 10px 15px;
+        text-align: center;
+    }
+
+    .login-button,
+    .register-button,
+    .logout-button {
+        margin: 5px 0;
+        text-align: center;
+    }
+}
