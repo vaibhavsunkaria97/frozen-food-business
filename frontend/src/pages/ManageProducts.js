@@ -14,6 +14,7 @@ const ManageProducts = () => {
         stock: "",
         image: "",
     });
+    const [alert, setAlert] = useState({ message: "", type: "" });
 
     const token = localStorage.getItem("token");
 
@@ -48,41 +49,66 @@ const ManageProducts = () => {
         fetchProducts();
     }, []);
 
+    useEffect(() => {
+        if (alert.message) {
+            const timer = setTimeout(() => setAlert({ message: "", type: "" }), 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [alert]);
+
     const createCategory = async (e) => {
         e.preventDefault();
         if (!categoryName) return;
-        await axios.post(
-            "http://localhost:5000/api/categories",
-            { name: categoryName },
-            authHeader
-        );
-        setCategoryName("");
-        fetchCategories();
+        try {
+            await axios.post(
+                "http://localhost:5000/api/categories",
+                { name: categoryName },
+                authHeader
+            );
+            setAlert({ message: "Category added successfully!", type: "success" });
+            setCategoryName("");
+            fetchCategories();
+        } catch (err) {
+            setAlert({ message: "Failed to add category", type: "error" });
+        }
     };
 
     const createProduct = async (e) => {
         e.preventDefault();
-        await axios.post(
-            "http://localhost:5000/api/products",
-            { ...productData },
-            authHeader
-        );
-        setProductData({ name: "", description: "", price: "", category: "", stock: "", image: "" });
-        fetchProducts();
+        try {
+            await axios.post(
+                "http://localhost:5000/api/products",
+                { ...productData },
+                authHeader
+            );
+            setAlert({ message: "Product created successfully!", type: "success" });
+            setProductData({ name: "", description: "", price: "", category: "", stock: "", image: "" });
+            fetchProducts();
+        } catch (err) {
+            setAlert({ message: "Failed to create product", type: "error" });
+        }
     };
 
     const toggleActive = async (id, isActive) => {
-        await axios.put(
-            `http://localhost:5000/api/products/${id}`,
-            { isActive: !isActive },
-            authHeader
-        );
-        fetchProducts();
+        try {
+            await axios.put(
+                `http://localhost:5000/api/products/${id}`,
+                { isActive: !isActive },
+                authHeader
+            );
+            setAlert({ message: "Product status updated", type: "success" });
+            fetchProducts();
+        } catch (err) {
+            setAlert({ message: "Failed to update product", type: "error" });
+        }
     };
 
     return (
         <div className="manage-container container">
             <h1>Product Management</h1>
+            {alert.message && (
+                <div className={`alert ${alert.type}`}>{alert.message}</div>
+            )}
 
             <section className="form-section">
                 <h2>Create Category</h2>

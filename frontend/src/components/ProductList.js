@@ -11,6 +11,7 @@ const ProductList = ({ products }) => {
             cart.push({ id: product._id, name: product.name, price: product.price, quantity: 1 });
         }
         localStorage.setItem("cart", JSON.stringify(cart));
+        window.dispatchEvent(new Event("cartUpdated"));
         alert(`${product.name} added to cart!`);
     };
 
