@@ -42,6 +42,11 @@ h1 {
     max-width: 100px;
 }
 
+.preview-list img {
+    margin-right: 5px;
+    max-width: 60px;
+}
+
 .form-section input,
 .form-section textarea,
 .form-section select {

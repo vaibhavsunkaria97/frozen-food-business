@@ -13,6 +13,11 @@ const ManageProducts = () => {
         category: "",
         stock: "",
         image: "",
+        images: [],
+        howToUse: "",
+        nutrition: "",
+        storage: "",
+        videoUrl: "",
     });
     const [alert, setAlert] = useState({ message: "", type: "" });
 
@@ -44,6 +49,19 @@ const ManageProducts = () => {
         reader.readAsDataURL(file);
     };
 
+    const handleImagesChange = (e) => {
+        const files = Array.from(e.target.files);
+        Promise.all(files.map(file => {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onloadend = () => resolve(reader.result);
+                reader.readAsDataURL(file);
+            });
+        })).then((imgs) => {
+            setProductData({ ...productData, images: imgs });
+        });
+    };
+
     useEffect(() => {
         fetchCategories();
         fetchProducts();
@@ -59,6 +77,10 @@ const ManageProducts = () => {
     const createCategory = async (e) => {
         e.preventDefault();
         if (!categoryName) return;
+        if (categories.some((c) => c.name.toLowerCase() === categoryName.toLowerCase())) {
+            setAlert({ message: "Category already exists", type: "error" });
+            return;
+        }
         try {
             await axios.post(
                 "http://localhost:5000/api/categories",
@@ -82,7 +104,19 @@ const ManageProducts = () => {
                 authHeader
             );
             setAlert({ message: "Product created successfully!", type: "success" });
-            setProductData({ name: "", description: "", price: "", category: "", stock: "", image: "" });
+            setProductData({
+                name: "",
+                description: "",
+                price: "",
+                category: "",
+                stock: "",
+                image: "",
+                images: [],
+                howToUse: "",
+                nutrition: "",
+                storage: "",
+                videoUrl: "",
+            });
             fetchProducts();
         } catch (err) {
             setAlert({ message: "Failed to create product", type: "error" });
@@ -169,6 +203,34 @@ const ManageProducts = () => {
                     {productData.image && (
                         <img src={productData.image} alt="preview" style={{ maxWidth: "100px" }} />
                     )}
+                    <input type="file" accept="image/*" multiple onChange={handleImagesChange} />
+                    {productData.images.length > 0 && (
+                        <div className="preview-list">
+                            {productData.images.map((img, i) => (
+                                <img key={i} src={img} alt="preview" style={{ maxWidth: "60px", marginRight: '5px' }} />
+                            ))}
+                        </div>
+                    )}
+                    <textarea
+                        placeholder="How to use"
+                        value={productData.howToUse}
+                        onChange={(e) => setProductData({ ...productData, howToUse: e.target.value })}
+                    />
+                    <textarea
+                        placeholder="Nutrition info"
+                        value={productData.nutrition}
+                        onChange={(e) => setProductData({ ...productData, nutrition: e.target.value })}
+                    />
+                    <textarea
+                        placeholder="Storage instructions"
+                        value={productData.storage}
+                        onChange={(e) => setProductData({ ...productData, storage: e.target.value })}
+                    />
+                    <input
+                        placeholder="YouTube video URL"
+                        value={productData.videoUrl}
+                        onChange={(e) => setProductData({ ...productData, videoUrl: e.target.value })}
+                    />
                     <button type="submit">Create Product</button>
                 </form>
             </section>

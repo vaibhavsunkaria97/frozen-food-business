@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const { protect, admin } = require("../middlewares/authMiddleware");
 const Product = require("../models/productModel");
+const Review = require("../models/reviewModel");
 
 const router = express.Router();
 
@@ -100,6 +101,41 @@ router.put("/:id", protect, admin, async (req, res) => {
     } catch (err) {
         console.error("Error updating product:", err.message);
         res.status(500).json({ success: false, message: "Failed to update product" });
+    }
+});
+
+// @route   GET /api/products/:id/reviews
+// @desc    Get product reviews (max 5) and average rating
+router.get('/:id/reviews', async (req, res) => {
+    try {
+        const reviews = await Review.find({ product: req.params.id })
+            .sort({ createdAt: -1 })
+            .limit(5);
+
+        const avgData = await Review.aggregate([
+            { $match: { product: new mongoose.Types.ObjectId(req.params.id) } },
+            { $group: { _id: null, avg: { $avg: '$rating' } } }
+        ]);
+
+        const avgRating = avgData[0]?.avg || 0;
+
+        res.json({ success: true, reviews, avgRating });
+    } catch (err) {
+        console.error('Error fetching reviews:', err.message);
+        res.status(500).json({ success: false, message: 'Failed to fetch reviews' });
+    }
+});
+
+// @route   POST /api/products/:id/reviews
+// @desc    Add a product review
+router.post('/:id/reviews', async (req, res) => {
+    try {
+        const review = new Review({ product: req.params.id, ...req.body });
+        const created = await review.save();
+        res.status(201).json({ success: true, review: created });
+    } catch (err) {
+        console.error('Error creating review:', err.message);
+        res.status(500).json({ success: false, message: 'Failed to create review' });
     }
 });
 
