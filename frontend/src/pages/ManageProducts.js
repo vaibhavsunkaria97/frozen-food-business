@@ -33,6 +33,16 @@ const ManageProducts = () => {
         setProducts(data.products || []);
     };
 
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setProductData({ ...productData, image: reader.result });
+        };
+        reader.readAsDataURL(file);
+    };
+
     useEffect(() => {
         fetchCategories();
         fetchProducts();
@@ -129,12 +139,10 @@ const ManageProducts = () => {
                         onChange={(e) => setProductData({ ...productData, stock: e.target.value })}
                         required
                     />
-                    <input
-                        placeholder="Image URL"
-                        value={productData.image}
-                        onChange={(e) => setProductData({ ...productData, image: e.target.value })}
-                        required
-                    />
+                    <input type="file" accept="image/*" onChange={handleImageChange} />
+                    {productData.image && (
+                        <img src={productData.image} alt="preview" style={{ maxWidth: "100px" }} />
+                    )}
                     <button type="submit">Create Product</button>
                 </form>
             </section>
