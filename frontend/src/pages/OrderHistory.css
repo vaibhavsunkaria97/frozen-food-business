@@ -2,6 +2,8 @@
     padding: 20px;
     font-family: Arial, sans-serif;
     color: #333;
+    max-width: 61.8vw;
+    margin: 0 auto;
 }
 
 h1 {
