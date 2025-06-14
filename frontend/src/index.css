@@ -1,4 +1,8 @@
 /* Global Reset */
+:root {
+    --golden-ratio: 1.618;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -34,9 +38,18 @@ main.container {
     margin: 0 auto;
 }
 
+.golden-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
 @media (min-width: 768px) {
     .container {
         max-width: 1200px;
+    }
+
+    .golden-container {
+        max-width: 61.8vw;
     }
 }
 

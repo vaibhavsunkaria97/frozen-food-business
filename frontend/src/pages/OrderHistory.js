@@ -40,7 +40,7 @@ const OrderHistory = () => {
     if (error) return <p style={{ color: "red" }}>{error}</p>;
 
     return (
-        <div className="order-history-container">
+        <div className="order-history-container container golden-container">
             <h1>Your Order History</h1>
             {orders.length === 0 ? (
                 <p>No orders found.</p>

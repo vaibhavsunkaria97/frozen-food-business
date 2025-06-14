@@ -20,7 +20,7 @@ const App = () => {
         <AuthProvider>
             <Router>
                 
-                <main className="container">
+                <main className="container golden-container">
                   <Navbar />
                     <Routes>
                         <Route path="/" element={<Home />} />

@@ -1,6 +1,8 @@
 .checkout-container {
     padding: 20px;
     font-family: Arial, sans-serif;
+    max-width: 61.8vw;
+    margin: 0 auto;
 }
 
 .order-summary {

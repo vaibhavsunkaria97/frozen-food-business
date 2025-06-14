@@ -40,7 +40,7 @@ const Login = () => {
     };
 
     return (
-        <div className="login-container">
+        <div className="login-container container golden-container">
             <h1>Login</h1>
             <form onSubmit={handleLogin}>
                 <div>

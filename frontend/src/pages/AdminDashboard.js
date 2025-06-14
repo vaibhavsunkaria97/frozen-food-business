@@ -91,7 +91,7 @@ const AdminDashboard = () => {
     const orderStatuses = ["Pending", "Processing", "Shipped", "Delivered", "Cancelled"];
 
     return (
-        <div className="admin-dashboard-container">
+        <div className="admin-dashboard-container container golden-container">
             <h1>Admin Dashboard</h1>
             <div className="search-bar">
                 <input

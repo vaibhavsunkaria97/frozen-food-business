@@ -104,7 +104,7 @@ const ManageProducts = () => {
     };
 
     return (
-        <div className="manage-container container">
+        <div className="manage-container container golden-container">
             <h1>Product Management</h1>
             {alert.message && (
                 <div className={`alert ${alert.type}`}>{alert.message}</div>

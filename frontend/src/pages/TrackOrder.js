@@ -46,7 +46,7 @@ const TrackOrder = () => {
     const currentStageIndex = statusStages.findIndex(stage => stage.name === order.status);
 
     return (
-        <div className="track-order-container">
+        <div className="track-order-container container golden-container">
             <h1>Track Your Order</h1>
             <div className="order-card">
                 <h2>Order Details</h2>
