@@ -19,6 +19,10 @@ h1 {
     max-width: 500px;
 }
 
+.product-form img {
+    max-width: 100px;
+}
+
 .form-section input,
 .form-section textarea,
 .form-section select {
