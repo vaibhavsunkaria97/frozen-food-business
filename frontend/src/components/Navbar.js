@@ -51,12 +51,7 @@ const Navbar = () => {
                 <li>
                     <Link to="/categories">Categories</Link>
                 </li>
-                <li className="cart-icon">
-                    <Link to="/cart" aria-label="Cart">
-                        <i className="fas fa-shopping-cart" />
-                        {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-                    </Link>
-                </li>
+               
                 {user && (
                     <>
                         <li>
@@ -100,6 +95,12 @@ const Navbar = () => {
                         </li>
                     </>
                 )}
+                 <li className="cart-icon">
+                    <Link to="/cart" aria-label="Cart">
+                        <i className="fas fa-shopping-cart" />
+                        {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+                    </Link>
+                </li>
                 {user && (
                     <li className="user-dropdown">
                         <span

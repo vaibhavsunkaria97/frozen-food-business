@@ -19,9 +19,10 @@ const App = () => {
     return (
         <AuthProvider>
             <Router>
-                
+                <div className="app-container">
+                <Navbar />
                 <main className="container golden-container">
-                  <Navbar />
+                  
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/product/:id" element={<ProductDetails />} />
@@ -36,6 +37,7 @@ const App = () => {
                     </Routes>
                 </main>
                 <Footer />
+                </div> 
             </Router>
         </AuthProvider>
     );
