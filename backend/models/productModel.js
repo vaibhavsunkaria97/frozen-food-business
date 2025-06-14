@@ -33,6 +33,11 @@ const productSchema = mongoose.Schema(
             type: String,
             required: true,
         },
+        images: [String],
+        howToUse: { type: String },
+        nutrition: { type: String },
+        storage: { type: String },
+        videoUrl: { type: String },
     },
     {
         timestamps: true,
