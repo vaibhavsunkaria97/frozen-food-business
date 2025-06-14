@@ -51,7 +51,7 @@ const Home = () => {
     };
 
     return (
-        <div className="home-container">
+        <div className="home-container container">
             <div className="hero">
                 <h1>Welcome to Frozen Food Store</h1>
                 <p>Quality frozen food delivered to your doorstep.</p>

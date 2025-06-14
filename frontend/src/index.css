@@ -23,6 +23,19 @@ body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+/* Responsive container for main content */
+.container {
+    padding: 0 1rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
 /* App Container */
 .app-container {
     display: flex;

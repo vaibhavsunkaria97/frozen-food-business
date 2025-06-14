@@ -6,24 +6,25 @@
 }
 
 .hero {
-    background: url("https://via.placeholder.com/1200x400") no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url("https://via.placeholder.com/1200x400") no-repeat center center;
     background-size: cover;
     color: white;
     text-align: center;
-    padding: 60px 20px;
-    border-radius: 10px; /* Add rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    padding: 80px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add text shadow for better readability */
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
     margin: 15px 0 0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Add text shadow for better readability */
 }

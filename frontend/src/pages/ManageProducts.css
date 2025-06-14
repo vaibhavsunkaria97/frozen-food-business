@@ -1,0 +1,92 @@
+.manage-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+}
+
+.form-section input,
+.form-section textarea,
+.form-section select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-section button {
+    padding: 10px;
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-table th,
+.product-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.product-table th {
+    background-color: #f8f8f8;
+}
+
+@media (max-width: 600px) {
+    .form-section form {
+        width: 100%;
+    }
+
+    .product-table table,
+    .product-table thead,
+    .product-table tbody,
+    .product-table th,
+    .product-table td,
+    .product-table tr {
+        display: block;
+    }
+
+    .product-table tr {
+        margin-bottom: 15px;
+    }
+
+    .product-table td {
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .product-table td::before {
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+
+    .product-table td:nth-of-type(1)::before { content: "Name"; }
+    .product-table td:nth-of-type(2)::before { content: "Price"; }
+    .product-table td:nth-of-type(3)::before { content: "Stock"; }
+    .product-table td:nth-of-type(4)::before { content: "Status"; }
+    .product-table td:nth-of-type(5)::before { content: "Action"; }
+}
