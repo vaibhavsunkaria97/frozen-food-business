@@ -46,9 +46,14 @@ const Navbar = () => {
                             <Link to="/order-history">My Order History</Link>
                         </li>
                         {user.isAdmin && (
-                            <li>
-                                <Link to="/admin-dashboard">Admin Dashboard</Link>
-                            </li>
+                            <>
+                                <li>
+                                    <Link to="/admin-dashboard">Admin Dashboard</Link>
+                                </li>
+                                <li>
+                                    <Link to="/manage-products">Manage Products</Link>
+                                </li>
+                            </>
                         )}
                     </>
                 )}

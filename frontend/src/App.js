@@ -11,6 +11,7 @@ import Register from "./pages/Register";
 import OrderHistory from "./pages/OrderHistory";
 import TrackOrder from "./pages/TrackOrder";
 import AdminDashboard from "./pages/AdminDashboard";
+import ManageProducts from "./pages/ManageProducts";
 import Navbar from "./components/Navbar";
 import { AuthProvider } from "./contexts/AuthContext"; // Import AuthProvider
 
@@ -31,6 +32,7 @@ const App = () => {
                         <Route path="/order-history" element={<OrderHistory />} />
                         <Route path="/track-order/:id" element={<TrackOrder />} />
                         <Route path="/admin-dashboard" element={<AdminDashboard />} />
+                        <Route path="/manage-products" element={<ManageProducts />} />
                     </Routes>
                 </main>
                 <Footer />
