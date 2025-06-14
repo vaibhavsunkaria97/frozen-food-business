@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./ProductList.css";
 
 const ProductList = ({ products }) => {
@@ -19,9 +20,14 @@ const ProductList = ({ products }) => {
         <div className="product-grid">
             {products.map((product) => (
                 <div className="product-card" key={product._id}>
-                    <img src={product.image} alt={product.name} className="product-image" />
-                    <h3>{product.name}</h3>
-                    <p>${product.price.toFixed(2)}</p>
+                    <Link to={`/product/${product._id}`} className="link-unstyled">
+                        <img src={product.image} alt={product.name} className="product-image" />
+                        <h3>{product.name}</h3>
+                        <p>${product.price.toFixed(2)}</p>
+                        <div className="product-overlay">
+                            <p>{product.description}</p>
+                        </div>
+                    </Link>
                     <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
                 </div>
             ))}

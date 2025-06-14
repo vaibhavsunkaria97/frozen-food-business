@@ -50,8 +50,8 @@ const Home = () => {
         style={{ backgroundImage: `url(${heroImage})` }}
       >
         <div className="hero-content">
-          <h1>Welcome to Frozen Food Store</h1>
-          <p>Quality frozen food delivered to your doorstep.</p>
+          <h1>Discover Gourmet Frozen Delights</h1>
+          <p>Quality meals and snacks delivered straight to your freezer.</p>
           <button
             className="shop-now"
             onClick={() => setSelectedCategory(categories[0]?._id)}
@@ -65,9 +65,9 @@ const Home = () => {
       <section className="about-us">
         <h2>About Us</h2>
         <p>
-          We are passionate about bringing the freshest, highest-quality frozen foods
-          straight from the farm to your table. Our mission is to make healthy eating
-          easy, convenient, and affordable for everyone.
+          We curate premium frozen foods from trusted suppliers so you can enjoy
+          restaurant‑quality meals at home. Our mission is to make healthy eating
+          simple, convenient and exciting for everyone.
         </p>
       </section>
 
@@ -75,8 +75,8 @@ const Home = () => {
       <section className="our-journey">
         <h2>Our Journey</h2>
         <p>
-          Founded in 2020 as a small family business, we’ve grown our selection and
-          delivery network while maintaining our commitment to quality and sustainability.
+          Since launching in 2020 as a family business, we’ve expanded nationwide
+          while staying true to our commitment to quality ingredients and sustainable practices.
         </p>
       </section>
 
